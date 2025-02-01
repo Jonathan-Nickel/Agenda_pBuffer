@@ -25,7 +25,7 @@ void ListarTodos ( void **pBuffer );
 
 int main () 
 {
-void *pBuffer = malloc  ( FIXO ) ; // Um espaço pra número de pessoas, outro para menu e outro para agir como i.
+void *pBuffer = malloc ( FIXO ) ; // Um espaço pra número de pessoas, outro para menu, outro para agir como i e um espaço pra nome.
     if ( !pBuffer ) {
         printf ( "Erro de alocação.\n" );
         return 1;
@@ -46,7 +46,7 @@ void *pBuffer = malloc  ( FIXO ) ; // Um espaço pra número de pessoas, outro p
         scanf ( "%d", ( int * ) ( pBuffer + SIZEINT ) ); //le e guarda no 2 inteiro
         getchar (  ) ;
 
-        switch  ( * ( int * )  ( pBuffer + SIZEINT )  ) 
+        switch  ( * ( int * ) ( pBuffer + SIZEINT ) ) 
         {
         case 1:
             AdicionarPessoa ( &pBuffer );
@@ -87,7 +87,7 @@ AdicionarPessoa
 
 void AdicionarPessoa ( void **pBuffer ) {
     
-    *pBuffer = realloc ( *pBuffer, FIXO + ( * ( int * ) *pBuffer )  * PESSOA ); //n de pessoa, menu, dados das pessoas
+    *pBuffer = realloc ( *pBuffer, FIXO + ( * ( int * ) *pBuffer )  * PESSOA ); //n de pessoa, menu, contador, nome, dados das pessoas
     if ( !*pBuffer ) {
         printf ( "Erro de alocação de memória.\n" );
         exit ( 1 );
